@@ -5,7 +5,8 @@ import { HomeStyle } from "./HomeStyle";
 const Home = () => {
   return (
     <HomeStyle>
-      <h1>Esse é o home</h1>
+      <ProductCard />
+      <ProductCard />
       <ProductCard />
     </HomeStyle>
   );

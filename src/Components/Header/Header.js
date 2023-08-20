@@ -6,8 +6,8 @@ function Header() {
     <div>
       <Cabecalho>
         <TextoCabecalho>
-          <li>home</li>
-          <li>home</li>
+          <li>Produtos</li>
+          <li>Carrinho</li>
           <li>home</li>
           <li>home</li>
         </TextoCabecalho>
