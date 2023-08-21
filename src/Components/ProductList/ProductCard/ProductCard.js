@@ -1,18 +1,16 @@
 import React from "react";
 import { ProductStyled, ConteinerImg, Imagem, ConteinerProduto, ConteinerValor, CaixaBotao, Botao } from "./ProductCardStyle";
-import Alyne from "../../../Assets/Alyne.jpg"
-const ProductCard = () => {
+const ProductCard = (props) => {
   return (
       <ProductStyled>
         <ConteinerImg>
-          {/* <Imagem src="https://picsum.photos/200/300"></Imagem> */}
-          <Imagem src={Alyne}alt="Alyne"></Imagem>
+          <Imagem src={props.imagem}></Imagem>
         </ConteinerImg>
         <ConteinerProduto>
-          <p>Caderno Azul </p>
+          <p>{props.nome} </p>
         </ConteinerProduto>
         <ConteinerValor>
-          <p>Valor: R$ 80,00</p>
+          <p>R$ {props.valor}</p>
         </ConteinerValor>
         <CaixaBotao>
           <Botao>Adicionar ao carrinho</Botao>
