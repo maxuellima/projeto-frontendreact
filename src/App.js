@@ -7,7 +7,6 @@ import Cart from "./Components/ShoppingCart/Cart/Cart";
 import Footer from "./Components/Footer/Footer";
 import { Principal } from "./AppStyle";
 
-import "./App.css";
 
 function App() {
   return (
