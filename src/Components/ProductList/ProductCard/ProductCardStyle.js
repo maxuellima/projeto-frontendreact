@@ -2,7 +2,7 @@ import Styled from "styled-components";
 
 export const ProductStyled = Styled.div`
 width: 20vw;
-height: 80vh;
+height: 50vh;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -13,7 +13,7 @@ gap: 1rem;
 export const ConteinerImg = Styled.div`
 display: flex;
 justify-content: center;
-height: 40vh;
+height: 50vh;
 width: 20vw;
 `;
 
