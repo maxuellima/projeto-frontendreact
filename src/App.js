@@ -17,16 +17,16 @@ function App() {
   const [maxFilter, setMaxFilter] = useState(0)
   const [searchFilter, setSearchFilter] = useState("")
   const [cart, setCart] = useState(0)
-  const [amount, setAmout] = useState(0)
+  const [amount, setAmount] = useState(0)
   
   return (
     <>
       <GlobalStyle />
       <Header />
       <Principal>
-        <Filter />
-        <Home />
-        <Cart />
+        <Filter minFilter={minFilter} setMinFilter={setMinFilter} maxFilter={maxFilter} setMaxFilter={setMaxFilter} searchFilter={searchFilter} setSearchFilter={setSearchFilter} />
+        <Home cart={cart} setCart={setCart} amount={amount} setAMount={setAmount}/>
+        <Cart cart={cart} setCart={setCart} amount={amount} setAMount={setAmount} />
       </Principal>
 
       <Footer />
