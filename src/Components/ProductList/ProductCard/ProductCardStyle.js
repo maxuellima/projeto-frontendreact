@@ -44,8 +44,8 @@ height: 6vh;
 width: 15vw;
 border-radius: 10px;
 font-size: 1rem;
+cursor: pointer;
     :hover {
-    cursor: pointer;
-    background: lightblue;
+    background-color: black;
 }
 `;
