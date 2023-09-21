@@ -5,52 +5,55 @@ import ProductCard from "../ProductCard/ProductCard";
 //Importando estilos
 import { ContainerProdutos, HomeStyle } from "./HomeStyle";
 //Importante objeto de array com os produtos
-import { Produtos } from "../../Assents/ProductsList";
 
-const Home = () => {
-  const [ordination, setOrdination] = useState("");
+const Home = (props) => {
+
+//Recebendo estados 
+const {cart, Produtos, searchFilter, minFilter, maxFilter, produtosFiltrados} = props.states
+
+//Recebendo a função de adicionar
+const {addToCart} = props
+
+//Recebendo os set estados
+const {setCart, setAmount} = props.handlers
+
+  const [ordination, setOrdination] = useState("asc");
   const mudarOrdem = (event) => {
     setOrdination(event.target.value);
-    
   };
-  console.log(ordination)
 
-  const produtos = Produtos;
+  const renderList = produtosFiltrados
+  .sort((a,b)=>ordination === "" || ordination === "asc" && a.nome > b.nome ? 1 : -1)
+  .sort((a,b)=>ordination === "" || ordination === "desc" && a.nome > b.nome ? -1 : 1)
+  .map((item) => {
+    return (
+      <ProductCard
+      cart={cart}  
+      key={item.id}
+      handlers = {{setCart, setAmount}}
+      addToCart={addToCart}
+      produto = {item}
+      id={item.id}
+      nome={item.nome}
+      valor={item.valor}
+      imagem={item.imagem}
+      />
+    );
+  })
+
+
   return (
     <HomeStyle>
       <div>
-        <p>Quantidade de produtos: {produtos.length}</p>
+        <p>Quantidade de produtos: {Produtos.length}</p>
         Selecione ordem:
         <select value={ordination} onChange={mudarOrdem}>
-          <option>Crescente</option>
-          <option>Decrescente</option>
+          <option value={"asc"}>Crescente</option>
+          <option value={"desc"}>Decrescente</option>
         </select>
-
-        {/* <select value={ordination} onChange={mudarOrdem}>
-          <option>Selecione: </option>
-          <option>Crescente</option>
-          <option>Decrescente</option>
-        </select> */}
       </div>
       <ContainerProdutos>
-        <ProductCard
-          id={produtos[0].id}
-          nome={produtos[0].nome}
-          valor={produtos[0].valor}
-          imagem={produtos[0].imagem}
-        />
-        <ProductCard
-          id={produtos[1].id}
-          nome={produtos[1].nome}
-          valor={produtos[1].valor}
-          imagem={produtos[1].imagem}
-        />
-        <ProductCard
-          id={produtos[2].id}
-          nome={produtos[2].nome}
-          valor={produtos[2].valor}
-          imagem={produtos[2].imagem}
-        />
+        {renderList}
       </ContainerProdutos>
     </HomeStyle>
   );

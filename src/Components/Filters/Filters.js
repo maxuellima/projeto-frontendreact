@@ -5,16 +5,24 @@ import { HomeFilter, CabecalhoFilter, ConteinerDosFiltros, CaixaDosFiltros, Labe
 
 
 function Filter(props) {
+
+  //Recebendo os estados
+  const {minFilter, maxFilter, searchFilter} = props.states
+
+  
+  //Recebendo as funções handlers
+  const {setMinFilter, setMaxFilter, setSearchFilter} = props.handlers
+
   const filterMin = (event)=>{
-    props.setMinFilter(event.target.value)
+    setMinFilter(event.target.value)
 }
-console.log(props.minFilter)
+
   
   const filterMax = (event)=>{
-    props.setMaxFilter(event.target.value)
+    setMaxFilter(event.target.value)
   }
   const filterName = (event)=>{
-    props.setSearchFilter(event.target.value)
+    setSearchFilter(event.target.value)
   }
   return (
     <HomeFilter>
@@ -25,15 +33,15 @@ console.log(props.minFilter)
       <CaixaDosFiltros>
         <LabelStyle>
           Valor mínimo:
-          <InputStyle type="number" value={props.minFilter} onChange={filterMin} />
+          <InputStyle min={0} type="number" value={minFilter} onChange={filterMin} />
         </LabelStyle>
         <LabelStyle>
           Valor Máximo:
-          <InputStyle type="number" value={props.maxFilter} onChange={filterMax} />
+          <InputStyle min={0} type="number" value={maxFilter} onChange={filterMax} />
         </LabelStyle>
         <LabelStyle>
           Busca por nome:
-          <InputStyle type="name" value={props.searchFilter} onChange={filterName} />
+          <InputStyle type="name" value={searchFilter} onChange={filterName} />
         </LabelStyle>
       </CaixaDosFiltros>
       </section>
