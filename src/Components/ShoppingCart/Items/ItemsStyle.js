@@ -7,5 +7,4 @@ flex-direction: column;
 align-items: start;
 justify-content: start;
 gap: 0.3em;
-
 `

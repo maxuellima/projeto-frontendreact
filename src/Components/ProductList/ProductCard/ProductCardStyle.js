@@ -16,6 +16,12 @@ border-radius: 2%;
     cursor:pointer;
     background-color: #4b3c5d;
 }
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+width: 40vw;
+
+}
+
 `;
 
 export const ConterinerImagem = Styled.div`
@@ -35,18 +41,36 @@ export const Imagem = Styled.img`
 max-width: 25vw;
 max-height: 25vh;
 border-radius: 5px;
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+max-width: 40vw;
+max-height: 25vh;
+
+}
+
 `;
 
 export const ConteinerTextos = Styled.div`
 display: flex;
 justify-content: center;
 width: 20vw;
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+width: 40vw;
+}
 `;
 
 export const CaixaBotao = Styled.div`
 display: flex;
 justify-content: center;
 width: 12vw;
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+width: 20vw;
+}
 `;
 
 export const Botao = Styled.button`
@@ -58,4 +82,10 @@ cursor: pointer;
     &:hover {
     background-color: #c5a898;
 }
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+width: 20vw;
+
+}
+
 `;
