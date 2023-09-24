@@ -8,6 +8,11 @@ flex-direction: column;
 justify-content: start;
 gap: 3vh;
 align-items: center;
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+height: 40vh;
+}
 `
 export const CabecalhoFilter = Styled.div`
 width: 100%;
@@ -24,6 +29,18 @@ img{
 h2{
     font-size: 2rem;
 }
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+height: 20vh;
+flex-direction: column;
+padding-left: 1em;
+
+img{
+    width: 10vw
+}
+}
+
 `
 export const CaixaDosFiltros = Styled.div`
 height: 40vh;
@@ -37,6 +54,12 @@ border-radius: .8em;
 &:hover{
     background-color: #4b3c5d;
 }
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+    height: 30vh;
+    padding-left: 1em;
+    gap: 1vh;
+}
 `
 
 export const LabelStyle = Styled.label`
@@ -47,7 +70,13 @@ height: 10vh;
 align-items: center;
 gap: 0.5vh;
 
-
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* celulares */
+height: 8vh;
+width: 10vw;
+gap: 0.2vh;
+font-size: 1em;
+}
 `
 
 export const InputStyle = Styled.input`

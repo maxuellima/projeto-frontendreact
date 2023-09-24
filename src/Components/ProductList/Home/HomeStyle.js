@@ -25,4 +25,13 @@ justify-content: space-around;
 align-items: start;
 box-sizing: border-box;
 flex-wrap: wrap;
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* celulares */
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    }
 `
+

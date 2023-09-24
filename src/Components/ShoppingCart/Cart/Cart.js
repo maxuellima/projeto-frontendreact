@@ -25,7 +25,7 @@ const Cart = (props) => {
     <CaixaCarrinho key={produto.id}>
       <Text>{produto.nome} </Text>
       <Text> Qtd: {produto.amount} </Text>
-      <Text>{produto.valor} </Text>
+      <Text>R$ {produto.valor} </Text>
       <button onClick={() => deleteProductCart(produto)}>X</button>
     </CaixaCarrinho>
   ));
