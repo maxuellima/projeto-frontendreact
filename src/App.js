@@ -1,8 +1,8 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Importando estilos
 import { GlobalStyle } from "./GlobalStyle";
-import { Principal } from "./AppStyle";
+import { Layout, Principal } from "./AppStyle";
 //Importando componentes
 import Header from "./Components/Header/Header";
 import Filter from "./Components/Filters/Filters";
@@ -10,11 +10,11 @@ import Home from "./Components/ProductList/Home/Home";
 import Cart from "./Components/ShoppingCart/Cart/Cart";
 import Footer from "./Components/Footer/Footer";
 
+//Importando a lista de Produtos
+
 import { Produtos } from "./Components/Assents/ProductsList";
 
 function App() {
-  //Importando a lista de produtos e desestruturando para passar como props
-const {imagem, id, valor, nome} = Produtos;
   //Declarando os estados e setEstados
   const [minFilter, setMinFilter] = useState("");
   const [maxFilter, setMaxFilter] = useState("");
@@ -22,14 +22,40 @@ const {imagem, id, valor, nome} = Produtos;
   const [cart, setCart] = useState([]);
   const [amount, setAmount] = useState(0);
 
-//Estado e variável para fazer a soma total
-  const [soma, setSoma] = useState(0)
-  let valorTotal = soma
+  //Estado e variável para fazer a soma total
+  const [soma, setSoma] = useState(0);
+  let valorTotal = soma;
 
-const produtosFiltrados = Produtos
-  .filter(item=>searchFilter === "" || item.nome.toLowerCase(searchFilter.toLowerCase()).includes(searchFilter))
-  .filter(item=>item.valor >= minFilter || minFilter === "" || minFilter === 0)
-  .filter(item=>item.valor <= maxFilter || maxFilter === "" || maxFilter === 0)
+  //UseEffect para guardar o array do carrinho no LocalStorage
+  useEffect(() => {
+    if (cart.length > 0) {
+      const cartString = JSON.stringify(cart);
+      localStorage.setItem("car", cartString);
+    }
+
+    //Aqui é o array de dependência --> Nesse caso indica que o useEffect acontecerá quando [cart] mudar
+  }, [cart]);
+  console.log(cart);
+
+  //useEffect para poder persistir na tela
+  useEffect(() => {
+    const oldCart = JSON.parse(localStorage.getItem("car"));
+    if (oldCart) {
+      setCart(oldCart);
+    }
+  }, []);
+
+  const produtosFiltrados = Produtos.filter(
+    (item) =>
+      searchFilter === "" ||
+      item.nome.toLowerCase(searchFilter.toLowerCase()).includes(searchFilter)
+  )
+    .filter(
+      (item) => item.valor >= minFilter || minFilter === "" || minFilter === 0
+    )
+    .filter(
+      (item) => item.valor <= maxFilter || maxFilter === "" || maxFilter === 0
+    );
 
   // Função para adicionar o item novo ao carrinho
   const addToCart = (produto) => {
@@ -47,10 +73,10 @@ const produtosFiltrados = Produtos
       });
       setCart(newCart);
     }
-  
-  setSoma(produto.valor + valorTotal) 
+
+    //Soma para o valor total
+    setSoma(produto.valor + valorTotal);
   };
-  console.log(soma)
 
   //Função deletar item do carrinho
 
@@ -71,14 +97,18 @@ const produtosFiltrados = Produtos
       });
       setCart(newCart);
     }
-    setSoma(valorTotal - produto.valor) 
+    //Subtração para o valor total
+    setSoma(valorTotal - produto.valor);
+    //Garantir que o último item vai sair do carrinho e do localStorage
+    localStorage.removeItem("car");
   };
-//Função de limpar todo o carrinho(implemente para facilitar caso o usuário tenha inserido muitos itens)
-  const limparCarrinho = ()=>{
-    setCart([])
-  setSoma(0)
-  }
-    
+
+  //Função de limpar todo o carrinho(implemente para facilitar caso o usuário tenha inserido muitos itens)
+  const limparCarrinho = () => {
+    localStorage.removeItem("car");
+    setCart([]);
+    setSoma(0);
+  };
 
   return (
     <>
@@ -96,9 +126,9 @@ const produtosFiltrados = Produtos
             searchFilter,
             minFilter,
             maxFilter,
-            produtosFiltrados
+            produtosFiltrados,
           }}
-          handlers={{ setCart, setAmount}}
+          handlers={{ setCart, setAmount }}
           addToCart={addToCart}
         />
         <Cart
@@ -106,16 +136,11 @@ const produtosFiltrados = Produtos
           Produtos={Produtos}
           valorTotal={valorTotal}
           limparCarrinho={limparCarrinho}
-          // id={Produtos.id}
-          // imagem={Produtos.imagem}
-          // nome={Produtos.nome}
-          // valor={Produtos.valor}
           handlers={{ setCart, setAmount }}
           deleteProductCart={deleteProductCart}
         />
       </Principal>
-
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -3,6 +3,9 @@ import React from "react";
 //Importando os estilos
 import { HomeFilter, CabecalhoFilter, ConteinerDosFiltros, CaixaDosFiltros, LabelStyle, InputStyle } from "./FiltersStyle";
 
+//Importando imagens
+import astronautaMoon from "../../react-images/icon-moon-astrounaut.svg"
+
 
 function Filter(props) {
 
@@ -28,6 +31,7 @@ function Filter(props) {
     <HomeFilter>
       <CabecalhoFilter>
         <h2>Filtros</h2>
+        <img src={astronautaMoon} alt="" />
       </CabecalhoFilter>
       <section>
       <CaixaDosFiltros>

@@ -2,50 +2,69 @@ import Styled from "styled-components"
 
 export const CarStyled = Styled.aside`
 height: 80vh;
-width: 18vw;
-background: red;
+width: 25vw;
 `
 export const CaixaHeader = Styled.div`
-height: 10vh;
-background: blue;
+height: 20%;
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: space-around;
 align-items: start;
+margin-bottom:0.3em;
 
-p{
-    color: white;
+div{
+    display: flex;
 }
 
-h2{
-    color:#fff;
+button{
+    border: none;
+    width: 10vw;
+    height: 4vh;
+    border-radius: 10px;
+
+    &:hover{
+        background:#fff1ce;
+        cursor: pointer;
+    }
 }
+
 `
 export const CaixaCarrinho = Styled.div`
 
-background-color: orange;
-flex-direction: column;
-gap: 3vh;
-padding: 1vh;
-flex-wrap: wrap;
+height: 5vh;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 20vw;
 
 button{
-    background-color: tomato;
+    height:50%;
+    background-color: darkred;
     border: none;
     padding: 0 4px;
+    color: white;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #b55d5d;
+    }
 }
 `
 export const Text = Styled.p`
-width: 100%;
+width: 30%;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
 `
 
 export const ContainerItem = Styled.section`
-border: 1px solid black;
 display: flex;
-align-items: center;
-padding: 10px;
-margin: 5px;
+flex-direction: column;
+justify-content: space-between;
+align-items: start;
+
+&:hover{
+    background: #4b3c5d;
+    border-radius: 10px;
+}
 `
