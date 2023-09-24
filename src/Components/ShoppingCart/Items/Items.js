@@ -1,12 +1,12 @@
 import React from "react";
+import { ItemsStyled } from "./ItemsStyle";
 
 const Items = (props)=>{
     const {productsCart} = props
     return(
-        <div>
-            <h4>Esse é o item do carrinho!</h4>
-            <p>{productsCart}</p>
-        </div>
+        <ItemsStyled>
+            {productsCart}
+        </ItemsStyled>
     )
 }
 export default Items;

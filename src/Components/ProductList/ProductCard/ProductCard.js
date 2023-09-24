@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductStyled, ConteinerImg, Imagem, ConteinerProduto, ConteinerValor, CaixaBotao, Botao } from "./ProductCardStyle";
+import { ConteinerCard, ConterinerImagem, Imagem, ConteinerTextos, CaixaBotao, Botao } from "./ProductCardStyle";
 import { Produtos } from "../../Assents/ProductsList";
 const ProductCard = (props) => {
 
@@ -7,32 +7,21 @@ const {addToCart} = props
 const {id, imagem, valor, nome, produto} = props
 const {cart} = props
 
-//-------> FIZ COM DAVI esse aqui, substituir
-// const addToCart = (preco, id)=>{
-// const itemCarrinho = cart.filter(item => item !== objeto).sort(()=>{return 0})
-// const addCarro = [...itemCarrinho, objeto]
-// setCart(addCarro)
-// addCarro.map((item)=>{
-//   if(item.id === id){
-//     return setSoma(soma + preco)
-//   } 
-// })
-// }
   return (
-      <ProductStyled>
-        <ConteinerImg>
+      <ConteinerCard>
+        <ConterinerImagem>
           <Imagem src={imagem}></Imagem>
-        </ConteinerImg>
-        <ConteinerProduto>
+        </ConterinerImagem>
+        <ConteinerTextos>
           <p>{nome}</p>
-        </ConteinerProduto>
-        <ConteinerValor>
+        </ConteinerTextos>
+        <ConteinerTextos>
           <p>R$ {valor},00</p>
-        </ConteinerValor>
+        </ConteinerTextos>
         <CaixaBotao>
           <Botao value={cart} onClick={()=>addToCart(produto)}>Adicionar ao carrinho</Botao>
         </CaixaBotao>
-      </ProductStyled>
+      </ConteinerCard>
   );
 };
 

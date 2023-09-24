@@ -3,7 +3,7 @@ import { useState } from "react";
 //Importando componentes
 import ProductCard from "../ProductCard/ProductCard";
 //Importando estilos
-import { ContainerProdutos, HomeStyle } from "./HomeStyle";
+import { ContainerProdutos, HomeStyle, SelectDiv } from "./HomeStyle";
 //Importante objeto de array com os produtos
 
 const Home = (props) => {
@@ -44,14 +44,14 @@ const {setCart, setAmount} = props.handlers
 
   return (
     <HomeStyle>
-      <div>
-        <p>Quantidade de produtos: {Produtos.length}</p>
-        Selecione ordem:
+      <SelectDiv>
+        <p>Quantidade de produtos disponíveis: {Produtos.length}</p>
+        Ordem alfabética:
         <select value={ordination} onChange={mudarOrdem}>
           <option value={"asc"}>Crescente</option>
           <option value={"desc"}>Decrescente</option>
         </select>
-      </div>
+      </SelectDiv>
       <ContainerProdutos>
         {renderList}
       </ContainerProdutos>

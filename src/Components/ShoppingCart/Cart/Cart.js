@@ -7,7 +7,10 @@ import {
   ContainerItem,
   Text,
 } from "./CartStyle";
-import { ProductStyled } from "../../ProductList/ProductCard/ProductCardStyle";
+ 
+import carrinho from "../../../react-images/carrinho.svg"
+
+import { ConteinerCard } from "../../ProductList/ProductCard/ProductCardStyle";
 
 const Cart = (props) => {
   const { cart, amount } = props.states;
@@ -20,23 +23,29 @@ const Cart = (props) => {
   //renderizando os produtos no carrinho
   const productsCart = cart.map((produto) => (
     <CaixaCarrinho key={produto.id}>
-      <Text>{produto.nome}</Text>
-      <Text>Qtd: {produto.amount}</Text>
-      <Text>{produto.valor}</Text>
-      <button onClick={() => deleteProductCart(produto)}>XX</button>
+      <Text>{produto.nome} </Text>
+      <Text> Qtd: {produto.amount} </Text>
+      <Text>{produto.valor} </Text>
+      <button onClick={() => deleteProductCart(produto)}>X</button>
     </CaixaCarrinho>
   ));
 
   return (
     <CarStyled>
       <CaixaHeader>
+        <div>
         <h2>Carrinho</h2>
+        <img src= {carrinho} width={30} alt="Ícone Carrinho" />
+        </div>
         <div>
           <p>Valor total: R$ {valorTotal}, 00 </p>
         </div>
-        <button onClick={limparCarrinho}>Limpar Carrinho</button>
+        <button onClick={limparCarrinho}>Limpar todo Carrinho</button>
       </CaixaHeader>
+      <ContainerItem>
       <Items productsCart={productsCart} />
+      </ContainerItem>
+      
     </CarStyled>
   );
 };

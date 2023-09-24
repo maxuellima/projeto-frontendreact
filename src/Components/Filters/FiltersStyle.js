@@ -1,9 +1,8 @@
 import Styled  from "styled-components"
 
 export const HomeFilter = Styled.div`
-height: 80vh;
-width: 18vw;
-background:green;
+height: 50vh;
+width: 15vw;
 display: flex;
 flex-direction: column;
 justify-content: start;
@@ -11,24 +10,20 @@ gap: 3vh;
 align-items: center;
 `
 export const CabecalhoFilter = Styled.div`
-width: 16vw;
+width: 100%;
 height: 10vh;
-background: blue;
 display: flex;
-justify-content: center;
+justify-content: space-around;
 align-items: center;
 box-sizing: border-box;
 
+img{
+    width: 4vw;
+}
+
 h2{
     font-size: 2rem;
-    background: red;
 }
-`
-export const ConteinerDosFiltros = Styled.section`
-height: 50vh;
-display: flex;
-justify-content: center;
-background: orange;
 `
 export const CaixaDosFiltros = Styled.div`
 height: 40vh;
@@ -37,7 +32,11 @@ flex-direction: column;
 justify-content: space-around;
 align-items: center;
 gap: 2vh;
-background: yellow;
+border-radius: .8em;
+
+&:hover{
+    background-color: #4b3c5d;
+}
 `
 
 export const LabelStyle = Styled.label`
@@ -47,7 +46,7 @@ justify-content: center;
 height: 10vh;
 align-items: center;
 gap: 0.5vh;
-background: pink;
+
 
 `
 
