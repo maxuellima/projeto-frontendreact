@@ -14,8 +14,9 @@ Página principal do projeto LabeSpace. Implementado utilizando React.JS, este p
 https://krexu-mfl-labespace.surge.sh/
 
 ## Página principal
-
-
+### - Desktop
+![home-desktop](./src/react-images/home-desktop.jpg)
+![home-mobile](./src/react-images/mobile.jpg)
 
 ## Lista de Requisitos
 
